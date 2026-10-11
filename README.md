@@ -64,9 +64,10 @@ encoded parameters; rehash with the plaintext password after verification.
   non-preemptible while OpenSSL runs, so each call occupies a slang worker.
   Each concurrent hash can use up to 256 MiB; rate-limit attempts and bound
   concurrency for both worker capacity and process memory.
-- Argon2id calls require OpenSSL 3.2 or newer with the Argon2id provider. The
-  compiler reports a clear error when the provider is unavailable; existing
-  crypto functions continue to work with older OpenSSL versions.
+- This package requires a slang compiler with native
+  `crypto.argon2id_raw` and `crypto.argon2id_verify` support, plus OpenSSL 3.2
+  or newer with the Argon2id provider. Older OpenSSL builds compile and return
+  a clear unavailable error; existing crypto functions continue to work.
 
 This package provides password hashing only. It does not add a pepper, choose
 password policy, rate-limit requests, or decide account lockout behavior.
