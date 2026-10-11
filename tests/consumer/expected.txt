@@ -1,0 +1,4 @@
+Go x/crypto PHC interoperability ok
+custom PHC hash and verify ok
+default profile and rehash check ok
+cost bounds and malformed PHC rejected
